@@ -1,19 +1,19 @@
 import React from "react";
 
-const Card = () => {
+const Card = ({ image }) => {
   return (
     <div className="card">
-      <img src="https://source.unsplash.com/random" alt="photo" />
+      <img src={image.webformatURL} alt="photo" />
       <div className="card-text">
-        <h3>Photo by John Doe</h3>
+        <h3>Photo by {image.user}</h3>
       </div>
       <div className="card-stats">
         <ul>
           <li>
-            <strong>Views: 1000</strong>
+            <strong>Views: {image.views}</strong>
           </li>
           <li>
-            <strong>Downloads: 250</strong>
+            <strong>Downloads: {image.downloads}</strong>
           </li>
           <li>
             <strong>Likes: 100</strong>

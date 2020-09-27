@@ -15,7 +15,7 @@ function App() {
       let response = await fetch(`https://pixabay.com/api/?key=${key}&q=&image_type=photo&pretty=true
       `);
       let data = await response.json();
-      setImages(data);
+      setImages(data.hits);
       setIsLoading(false);
     };
 
@@ -24,7 +24,11 @@ function App() {
 
   return (
     <div className="container">
-      <Card />
+      <div className="grid">
+        {images.map((image) => {
+          return <Card key={image.id} image={image} />;
+        })}
+      </div>
     </div>
   );
 }
