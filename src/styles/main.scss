@@ -30,6 +30,10 @@ li {
   gap: 2rem;
 }
 
+.loading {
+  text-align: center;
+}
+
 // card styles
 .card {
   display: flex;
@@ -56,6 +60,7 @@ li {
 
   li {
     margin-bottom: 0.5rem;
+    color: rgb(74, 88, 100);
   }
 }
 
@@ -71,5 +76,42 @@ li {
     padding: 0.2rem;
     border-radius: 5px;
     margin-right: 0.5rem;
+  }
+}
+
+// search input & form
+form {
+  text-align: center;
+}
+
+input[type="text"] {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 30%;
+  margin: 2rem auto;
+}
+
+button[type="submit"] {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(137, 160, 179);
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(74, 88, 100);
+  }
+
+  &:active {
+    position: relative;
+    top: 2px;
   }
 }

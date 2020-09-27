@@ -23,8 +23,8 @@ const Card = ({ image }) => {
         </ul>
       </div>
       <div className="card-tags">
-        {tags.map((tag) => {
-          return <span># {tag}</span>;
+        {tags.map((tag, index) => {
+          return <span key={index}># {tag}</span>;
         })}
       </div>
     </div>

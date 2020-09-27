@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
+import SearchInput from "./components/SearchInput";
 import "./styles/main.scss";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      let response = await fetch(`https://pixabay.com/api/?key=${key}&q=&image_type=photo&pretty=true
+      let response = await fetch(`https://pixabay.com/api/?key=${key}&q=${term}&image_type=photo&pretty=true
       `);
       let data = await response.json();
       setImages(data.hits);
@@ -20,15 +21,20 @@ function App() {
     };
 
     fetchPhotos();
-  }, []);
+  }, [term]);
 
   return (
     <div className="container">
-      <div className="grid">
-        {images.map((image) => {
-          return <Card key={image.id} image={image} />;
-        })}
-      </div>
+      <SearchInput searchText={(text) => setTerm(text)} />
+      {isLoading ? (
+        <h1 className="loading">Loading...</h1>
+      ) : (
+        <div className="grid">
+          {images.map((image) => {
+            return <Card key={image.id} image={image} />;
+          })}
+        </div>
+      )}
     </div>
   );
 }
