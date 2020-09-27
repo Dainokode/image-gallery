@@ -1,6 +1,8 @@
 import React from "react";
 
 const Card = ({ image }) => {
+  const tags = image.tags.split(",");
+
   return (
     <div className="card">
       <img src={image.webformatURL} alt="photo" />
@@ -19,6 +21,11 @@ const Card = ({ image }) => {
             <strong>Likes: 100</strong>
           </li>
         </ul>
+      </div>
+      <div className="card-tags">
+        {tags.map((tag) => {
+          return <span># {tag}</span>;
+        })}
       </div>
     </div>
   );
